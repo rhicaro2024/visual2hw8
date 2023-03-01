@@ -54,10 +54,4 @@ public class Circle extends Shape {
         return x >= this.x && x <= this.x+2*radius &&
                y >= this.y && y <= this.y+2*radius;
     }
-
-    @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }

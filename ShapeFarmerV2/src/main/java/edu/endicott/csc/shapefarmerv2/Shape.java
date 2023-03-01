@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * 
  * @author hfeild
  */
-public abstract class Shape implements Drawable, Selectable, Wanderable, Comparable {
+public abstract class Shape implements Drawable, Selectable, Wanderable, Comparable<Shape>{
     protected int x, y;  // Upper left corner.
     protected boolean isSelected;    
     /**
@@ -53,4 +53,32 @@ public abstract class Shape implements Drawable, Selectable, Wanderable, Compara
     public int getY(){
         return y;
     }
+ 
+    @Override
+    public int compareTo(Shape o) {
+        if (x > o.x) {
+            return 1;
+        } else if (x < o.x) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+    
+    public ArrayList<Shape> compareShapes(ArrayList<Shape> shapeArray){
+        for (int i = 0; i < (shapeArray.size()); i++){
+            for (int j = i+1; j < (shapeArray.size()); j++){
+                Shape tmp = null;
+                if (shapeArray.get(i).x > shapeArray.get(j).x);
+                    tmp = shapeArray.get(i);
+                    shapeArray.set(i, shapeArray.get(j));
+                    shapeArray.set(j, tmp);
+            }
+        }
+        for (Shape shape: shapeArray){
+            System.out.println("x: " + shape.x + " y: " + shape.y);
+        }
+        return shapeArray;
+    }
 }
+
